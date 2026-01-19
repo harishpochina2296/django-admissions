@@ -1,0 +1,14 @@
+<h2>Search Employees</h2>
+
+<form method="get" action="{% url 'searchEmployee' %}">
+    <input type="text" name="q" placeholder="Enter employee name" value="{{ query }}">
+    <button type="submit">Search</button>
+</form>
+
+<ul>
+    {% for emp in employees %}
+        <li>{{ emp.name }} - {{ emp.salary }} - {{ emp.gender }} - Dept: {{ emp.dno }}</li>
+    {% empty %}
+        <li>No employees found.</li>
+    {% endfor %}
+</ul>
